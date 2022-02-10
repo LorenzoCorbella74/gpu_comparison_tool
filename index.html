@@ -88,7 +88,7 @@
                 datalabels: {
                   color: 'white',
                   formatter: function (value, context) {
-                    return Number(value) * 100 + '%'
+                    return Math.floor(Number(value) * 100) + '%'
                   }
                 }
               },
@@ -127,7 +127,7 @@
             .then((response) => response.json())
             .then((data) => {
               console.log('List of GPU: ', data);
-              this.data = data.map(e => ({ ...e, scoreForChart: e.score, power: Number(e.power.slice(0, -1)) }));
+              this.data = data.map(e => ({ ...e, scoreForChart: e.score, power: Number(e.power.slice(0, -1)) })); // debug
               this.selected = null;
               resetSelect();
             })
@@ -140,7 +140,9 @@
   </script>
 
   <template id="my-template">
-    <br>
+    <a href="https://github.com/LorenzoCorbella74/gpu_comparison_tool">
+      <img class="github" src="GitHub-Mark-Light-64px.PNG" alt="github">
+    </a>
     <div class="container">
       <div class="bar">
         <h2>GPU Comparison Tool</h2>

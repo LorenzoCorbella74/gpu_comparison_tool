@@ -8,6 +8,15 @@
 
 body {
   font-family: "Audiowide", sans-serif;
+  background-color: rgb(240, 240, 240);
+}
+
+.github {
+  position: relative;
+  top: 0.5rem;
+  left: 1rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 select {
