@@ -86,7 +86,10 @@
               legend: { display: true },
               plugins: {
                 datalabels: {
-                  color: 'white'
+                  color: 'white',
+                  formatter: function (value, context) {
+                    return Number(value) * 100 + '%'
+                  }
                 }
               },
               title: {
