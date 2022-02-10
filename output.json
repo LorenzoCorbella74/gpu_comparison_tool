@@ -1,0 +1,530 @@
+[
+  {
+    "name": "Nvidia GeForce RTX 3090",
+    "score": 100,
+    "gpu": "GA102",
+    "base_boost": "1400/1695 MHz",
+    "memory": "24GB GDDR6X",
+    "power": "350W"
+  },
+  {
+    "name": "Nvidia GeForce RTX 3080 Ti",
+    "score": 97.9,
+    "gpu": "GA102",
+    "base_boost": "1370/1665 MHz",
+    "memory": "12GB GDDR6X",
+    "power": "350W"
+  },
+  {
+    "name": "AMD Radeon RX 6900 XT",
+    "score": 97,
+    "gpu": "Navi 21",
+    "base_boost": "1825/2250 MHz",
+    "memory": "16GB GDDR6",
+    "power": "300W"
+  },
+  {
+    "name": "AMD Radeon RX 6800 XT",
+    "score": 93.5,
+    "gpu": "Navi 21",
+    "base_boost": "1825/2250 MHz",
+    "memory": "16GB GDDR6",
+    "power": "300W"
+  },
+  {
+    "name": "Nvidia GeForce RTX 3080",
+    "score": 93.2,
+    "gpu": "GA102",
+    "base_boost": "1440/1710 MHz",
+    "memory": "10GB GDDR6X",
+    "power": "320W"
+  },
+  {
+    "name": "AMD Radeon RX 6800",
+    "score": 85.7,
+    "gpu": "Navi 21",
+    "base_boost": "1700/2105 MHz",
+    "memory": "16GB GDDR6",
+    "power": "250W"
+  },
+  {
+    "name": "Nvidia GeForce RTX 3070 Ti",
+    "score": 81.5,
+    "gpu": "GA104",
+    "base_boost": "1575/1770 MHz",
+    "memory": "8GB GDDR6X",
+    "power": "290W"
+  },
+  {
+    "name": "Nvidia Titan RTX",
+    "score": 79.5,
+    "gpu": "TU102",
+    "base_boost": "1350/1770 MHz",
+    "memory": "24GB GDDR6",
+    "power": "280W"
+  },
+  {
+    "name": "Nvidia GeForce RTX 2080 Ti",
+    "score": 77.4,
+    "gpu": "TU102",
+    "base_boost": "1350/1635 MHz",
+    "memory": "11GB GDDR6",
+    "power": "260W"
+  },
+  {
+    "name": "Nvidia GeForce RTX 3070",
+    "score": 76.3,
+    "gpu": "GA104",
+    "base_boost": "1500/1730 MHz",
+    "memory": "8GB GDDR6",
+    "power": "220W"
+  },
+  {
+    "name": "AMD Radeon RX 6700 XT",
+    "score": 73.3,
+    "gpu": "Navi 22",
+    "base_boost": "2321/2424 MHz",
+    "memory": "12GB GDDR6",
+    "power": "230W"
+  },
+  {
+    "name": "Nvidia GeForce RTX 3060 Ti",
+    "score": 69.6,
+    "gpu": "GA104",
+    "base_boost": "1410/1665 MHz",
+    "memory": "8GB GDDR6",
+    "power": "200W"
+  },
+  {
+    "name": "Nvidia Titan V",
+    "score": 68.7,
+    "gpu": "GV100",
+    "base_boost": "1200/1455 MHz",
+    "memory": "12GB HBM2",
+    "power": "250W"
+  },
+  {
+    "name": "Nvidia GeForce RTX 2080 Super",
+    "score": 66.8,
+    "gpu": "TU104",
+    "base_boost": "1650/1815 MHz",
+    "memory": "8GB GDDR6",
+    "power": "250W"
+  },
+  {
+    "name": "Nvidia GeForce RTX 2080",
+    "score": 62.5,
+    "gpu": "TU104",
+    "base_boost": "1515/1800 MHz",
+    "memory": "8GB GDDR6",
+    "power": "225W"
+  },
+  {
+    "name": "Nvidia Titan Xp",
+    "score": 61.1,
+    "gpu": "GP102",
+    "base_boost": "1405/1480 MHz",
+    "memory": "12GB GDDR5X",
+    "power": "250W"
+  },
+  {
+    "name": "Nvidia GeForce RTX 2070 Super",
+    "score": 59.6,
+    "gpu": "TU104",
+    "base_boost": "1605/1770 MHz",
+    "memory": "8GB GDDR6",
+    "power": "215W"
+  },
+  {
+    "name": "AMD Radeon VII",
+    "score": 58.9,
+    "gpu": "Vega 20",
+    "base_boost": "1400/1750 MHz",
+    "memory": "16GB HBM2",
+    "power": "300W"
+  },
+  {
+    "name": "Nvidia GeForce GTX 1080 Ti",
+    "score": 57.8,
+    "gpu": "GP102",
+    "base_boost": "1480/1582 MHz",
+    "memory": "11GB GDDR5X",
+    "power": "250W"
+  },
+  {
+    "name": "AMD Radeon RX 6600 XT",
+    "score": 57.7,
+    "gpu": "Navi 23",
+    "base_boost": "1968/2589 MHz",
+    "memory": "8GB GDDR6",
+    "power": "160W"
+  },
+  {
+    "name": "AMD Radeon RX 5700 XT",
+    "score": 57,
+    "gpu": "Navi 10",
+    "base_boost": "1605/1905 MHz",
+    "memory": "8GB GDDR6",
+    "power": "225W"
+  },
+  {
+    "name": "Nvidia GeForce RTX 3060 12GB",
+    "score": 54.7,
+    "gpu": "GA106",
+    "base_boost": "1320/1777 MHz",
+    "memory": "12GB GDDR6",
+    "power": "170W"
+  },
+  {
+    "name": "Nvidia GeForce RTX 2070",
+    "score": 53.1,
+    "gpu": "TU106",
+    "base_boost": "1410/1710 MHz",
+    "memory": "8GB GDDR6",
+    "power": "185W"
+  },
+  {
+    "name": "AMD Radeon RX 5700",
+    "score": 51.4,
+    "gpu": "Navi 10",
+    "base_boost": "1465/1725 MHz",
+    "memory": "8GB GDDR6",
+    "power": "185W"
+  },
+  {
+    "name": "Nvidia GeForce RTX 2060 Super",
+    "score": 50.6,
+    "gpu": "TU106",
+    "base_boost": "1470/1650 MHz",
+    "memory": "8GB GDDR6",
+    "power": "175W"
+  },
+  {
+    "name": "AMD Radeon RX 6600",
+    "score": 49.2,
+    "gpu": "Navi 23",
+    "base_boost": "1626/2491 MHz",
+    "memory": "8GB GDDR6",
+    "power": "132W"
+  },
+  {
+    "name": "AMD Radeon RX Vega 64",
+    "score": 48.4,
+    "gpu": "Vega 10",
+    "base_boost": "1274/1546 MHz",
+    "memory": "8GB HBM2",
+    "power": "295W"
+  },
+  {
+    "name": "AMD Radeon RX 5600 XT",
+    "score": 46.6,
+    "gpu": "Navi 10",
+    "base_boost": "?/1615 MHz",
+    "memory": "6GB GDDR6",
+    "power": "150W"
+  },
+  {
+    "name": "Nvidia GeForce GTX 1080",
+    "score": 45.2,
+    "gpu": "GP104",
+    "base_boost": "1607/1733 MHz",
+    "memory": "8GB GDDR5X",
+    "power": "180W"
+  },
+  {
+    "name": "Nvidia GeForce RTX 2060",
+    "score": 44.9,
+    "gpu": "TU106",
+    "base_boost": "1365/1680 MHz",
+    "memory": "6GB GDDR6",
+    "power": "160W"
+  },
+  {
+    "name": "AMD Radeon RX Vega 56",
+    "score": 42.7,
+    "gpu": "Vega 10",
+    "base_boost": "1156/1471 MHz",
+    "memory": "8GB HBM2",
+    "power": "210W"
+  },
+  {
+    "name": "Nvidia GeForce GTX 1070 Ti",
+    "score": 41.8,
+    "gpu": "GP104",
+    "base_boost": "1607/1683 MHz",
+    "memory": "8GB GDDR5",
+    "power": "180W"
+  },
+  {
+    "name": "Nvidia GeForce RTX 3050",
+    "score": 40.5,
+    "gpu": "GA106",
+    "base_boost": "1552/1777 MHz",
+    "memory": "8GB GDDR6",
+    "power": "130W"
+  },
+  {
+    "name": "Nvidia GeForce GTX 1660 Super",
+    "score": 37.9,
+    "gpu": "TU116",
+    "base_boost": "1530/1785 MHz",
+    "memory": "6GB GDDR6",
+    "power": "125W"
+  },
+  {
+    "name": "Nvidia GeForce GTX 1660 Ti",
+    "score": 37.8,
+    "gpu": "TU116",
+    "base_boost": "1365/1680 MHz",
+    "memory": "6GB GDDR6",
+    "power": "120W"
+  },
+  {
+    "name": "Nvidia GeForce GTX 1070",
+    "score": 36.7,
+    "gpu": "GP104",
+    "base_boost": "1506/1683 MHz",
+    "memory": "8GB GDDR5",
+    "power": "150W"
+  },
+  {
+    "name": "Nvidia GTX Titan X (Maxwell)",
+    "score": 35.3,
+    "gpu": "GM200",
+    "base_boost": "1000/1075 MHz",
+    "memory": "12GB GDDR5",
+    "power": "250"
+  },
+  {
+    "name": "Nvidia GeForce GTX 980 Ti",
+    "score": 32.9,
+    "gpu": "GM200",
+    "base_boost": "1000/1075 MHz",
+    "memory": "6GB GDDR5",
+    "power": "250W"
+  },
+  {
+    "name": "Nvidia GeForce GTX 1660",
+    "score": 32.8,
+    "gpu": "TU116",
+    "base_boost": "1530/1785 MHz",
+    "memory": "6GB GDDR5",
+    "power": "120W"
+  },
+  {
+    "name": "AMD Radeon R9 Fury X",
+    "score": 32.7,
+    "gpu": "Fiji",
+    "base_boost": "1050 MHz",
+    "memory": "4GB HBM",
+    "power": "275W"
+  },
+  {
+    "name": "AMD Radeon RX 590",
+    "score": 32.4,
+    "gpu": "Polaris 30",
+    "base_boost": "1469/1545 MHz",
+    "memory": "8GB GDDR5",
+    "power": "225W"
+  },
+  {
+    "name": "AMD Radeon RX 5500 XT 8GB",
+    "score": 31.8,
+    "gpu": "Navi 14",
+    "base_boost": "?/1717 MHz",
+    "memory": "8GB GDDR6",
+    "power": "130W"
+  },
+  {
+    "name": "AMD Radeon RX 580 8GB",
+    "score": 30.9,
+    "gpu": "Polaris 20",
+    "base_boost": "1257/1340 MHz",
+    "memory": "8GB GDDR5",
+    "power": "185W"
+  },
+  {
+    "name": "Nvidia GeForce GTX 1650 Super",
+    "score": 28.5,
+    "gpu": "TU116",
+    "base_boost": "1530/1725 MHz",
+    "memory": "4GB GDDR6",
+    "power": "100W"
+  },
+  {
+    "name": "AMD Radeon RX 5500 XT 4GB",
+    "score": 28.4,
+    "gpu": "Navi 14",
+    "base_boost": "?/1717 MHz",
+    "memory": "4GB GDDR6",
+    "power": "130W"
+  },
+  {
+    "name": "AMD Radeon RX 6500 XT",
+    "score": 27.7,
+    "gpu": "Navi 24",
+    "base_boost": "2610/2815 MHz",
+    "memory": "4GB GDDR6",
+    "power": "107W"
+  },
+  {
+    "name": "AMD Radeon R9 390",
+    "score": 27.2,
+    "gpu": "Hawaii",
+    "base_boost": "1000 MHz",
+    "memory": "8GB GDDR5",
+    "power": "275W"
+  },
+  {
+    "name": "Nvidia GeForce GTX 1060 6GB",
+    "score": 26.5,
+    "gpu": "GP106",
+    "base_boost": "1506/1708 MHz",
+    "memory": "6GB GDDR5",
+    "power": "120W"
+  },
+  {
+    "name": "Nvidia GeForce GTX 980",
+    "score": 26.4,
+    "gpu": "GM204",
+    "base_boost": "1126/1216 MHz",
+    "memory": "4GB GDDR5",
+    "power": "165W"
+  },
+  {
+    "name": "AMD Radeon RX 570 4GB",
+    "score": 25.2,
+    "gpu": "Polaris 20",
+    "base_boost": "1168/1244 MHz",
+    "memory": "4GB GDDR5",
+    "power": "150W"
+  },
+  {
+    "name": "Nvidia GTX 1650 GDDR6",
+    "score": 23.8,
+    "gpu": "TU117",
+    "base_boost": "1410/1590 MHz",
+    "memory": "4GB GDDR6",
+    "power": "75W"
+  },
+  {
+    "name": "Nvidia GeForce GTX 1060 3GB",
+    "score": 22.3,
+    "gpu": "GP106",
+    "base_boost": "1506/1708 MHz",
+    "memory": "3GB GDDR5",
+    "power": "120W"
+  },
+  {
+    "name": "Nvidia GeForce GTX 970",
+    "score": 22.1,
+    "gpu": "GM204",
+    "base_boost": "1050/1178 MHz",
+    "memory": "4GB GDDR5",
+    "power": "145W"
+  },
+  {
+    "name": "Nvidia GeForce GTX 1650",
+    "score": 20.9,
+    "gpu": "TU117",
+    "base_boost": "1485/1665 MHz",
+    "memory": "4GB GDDR5",
+    "power": "75W"
+  },
+  {
+    "name": "Nvidia GeForce GTX 1050 Ti",
+    "score": 16.1,
+    "gpu": "GP107",
+    "base_boost": "1290/1392 MHz",
+    "memory": "4GB GDDR5",
+    "power": "75W"
+  },
+  {
+    "name": "AMD Radeon RX 560 4GB",
+    "score": 12.5,
+    "gpu": "Polaris 21",
+    "base_boost": "1175/1275 MHz",
+    "memory": "4GB GDDR5",
+    "power": "80W"
+  },
+  {
+    "name": "Nvidia GeForce GTX 1050",
+    "score": 12.2,
+    "gpu": "GP107",
+    "base_boost": "1354/1455 MHz",
+    "memory": "2GB GDDR5",
+    "power": "75W"
+  },
+  {
+    "name": "AMD Vega 8 (R7 5700G)",
+    "score": 9.5,
+    "gpu": "Vega 8",
+    "base_boost": "2000 MHz",
+    "memory": "Shared",
+    "power": "N/A"
+  },
+  {
+    "name": "AMD Vega 7 (R5 5600G)",
+    "score": 8.8,
+    "gpu": "Vega 7",
+    "base_boost": "1900 MHz",
+    "memory": "Shared",
+    "power": "N/A"
+  },
+  {
+    "name": "AMD Radeon RX 550",
+    "score": 8,
+    "gpu": "Polaris 22",
+    "base_boost": "1100/1183 MHz",
+    "memory": "4GB GDDR5",
+    "power": "50W"
+  },
+  {
+    "name": "Nvidia GeForce GT 1030",
+    "score": 6.7,
+    "gpu": "GP108",
+    "base_boost": "1228/1468 MHz",
+    "memory": "2GB GDDR5",
+    "power": "30W"
+  },
+  {
+    "name": "AMD Vega 11 (R5 3400G)",
+    "score": 5.5,
+    "gpu": "Vega 11",
+    "base_boost": "1400 MHz",
+    "memory": "Shared",
+    "power": "N/A"
+  },
+  {
+    "name": "AMD Vega 8 (R3 3200G)",
+    "score": 4.9,
+    "gpu": "Vega 8",
+    "base_boost": "1250 MHz",
+    "memory": "Shared",
+    "power": "N/A"
+  },
+  {
+    "name": "Intel Iris Xe DG1",
+    "score": 4.4,
+    "gpu": "Xe DG1",
+    "base_boost": "1550 MHz",
+    "memory": "4GB LPDDR4X",
+    "power": "30W"
+  },
+  {
+    "name": "Intel Iris Plus (i7-1065G7)",
+    "score": 3,
+    "gpu": "Gen11 ICL-U",
+    "base_boost": "1100 MHz",
+    "memory": "Shared",
+    "power": "N/A"
+  },
+  {
+    "name": "Intel UHD Graphics 630 (i7-10700K)",
+    "score": 1.8,
+    "gpu": "Gen9.5 CFL",
+    "base_boost": "1200 MHz",
+    "memory": "2x8GB DDR4-3200",
+    "power": "N/A"
+  }
+]

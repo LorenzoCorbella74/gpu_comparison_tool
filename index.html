@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+  <title>GPU Comparison Tool</title>
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+  <script type="module">
+    import { createApp } from "https://unpkg.com/petite-vue?module"; // https://github.com/vuejs/petite-vue
+
+    let chart;
+
+    // https://www.chartjs.org/docs/latest/developers/updates.html
+    function syncChart(chart, items) {
+      chart.data.labels = []
+      chart.data.datasets[0].data = []
+      items.forEach(element => {
+        chart.data.labels.push(element.name)
+        chart.data.datasets[0].data.push(element.scoreForChart)
+      });
+      chart.update();
+    }
+
+    function roundToSecond(num) {
+      return Math.round(num * 100) / 100
+    }
+
+    function App(props) {
+      return {
+        $template: "#my-template",
+        data: [],
+        items: [],
+        selected: null,
+        chart: null,
+        select(one) {
+          this.selected = one;
+        },
+        add() {
+          if (this.selected) {
+            this.items.push(this.selected);
+            this.set100(this.selected);
+            this.selected = null;
+          }
+        },
+        remove(one) {
+          this.items = this.items.filter((e) => e.name !== one.name);
+          syncChart(chart, this.items) // erasing chart data
+        },
+        set100(one) {
+          const base = one.score
+          this.items.forEach(element => {
+            element.scoreForChart = roundToSecond(element.score / base)
+          });
+          console.log(JSON.parse(JSON.stringify(this.items)).map(e => ({ name: e.name, score: e.scoreForChart })))
+          syncChart(chart, this.items) // filling chart data
+        },
+        mounted() {
+
+          const config = {
+            plugins: [ChartDataLabels], // Register the plugin to all charts: https://chartjs-plugin-datalabels.netlify.app/
+            type: 'bar',
+            data: {
+              labels: [],
+              datasets: [{
+                label: 'Speed',
+                backgroundColor: ['#f22613', '#e74c3c', '#f62459', '#663399', '#9a12b3', '#bf55ec', '#19b5fe', '#1e8bc3', '#1f3a93', '#89c4f4', '#03c9a9', '#26c281', '#16a085', '#2eec71', '#f2784b', '#f89406', '#f9bf3b'],
+                data: [],
+              }]
+            },
+            options: {
+              legend: { display: true },
+              plugins: {
+                // Change options for ALL labels of THIS CHART
+                datalabels: {
+                  color: 'white'
+                }
+              },
+              title: {
+                display: true,
+                text: 'Selected GPU comparison'
+              },
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              },
+              onClick: clickHandler.bind(this)
+            },
+          };
+
+          // https://www.chartjs.org/docs/latest/developers/api.html#getelementsateventformode-e-mode-options-usefinalposition
+          function clickHandler(evt) {
+            const points = chart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+
+            if (points.length) {
+              const firstPoint = points[0];
+              const label = chart.data.labels[firstPoint.index];
+              const value = chart.data.datasets[firstPoint.datasetIndex].data[firstPoint.index];
+              console.log('Clicking bar: ', label, value)
+              let theOne = this.items.find((e) => e.name === label);
+              this.set100(theOne);
+            }
+          }
+          // https://tobiasahlin.com/blog/chartjs-charts-to-get-you-started/
+          chart = new Chart(
+            document.getElementById('bar-chart').getContext('2d'),
+            config
+          )
+          fetch("./output.json")
+            .then((response) => response.json())
+            .then((data) => {
+              console.log('List of GPU: ', data);
+              this.data = data.map(e => ({ ...e, scoreForChart: e.score, power: Number(e.power.slice(0, -1)) }));
+              this.selected = null;
+            })
+            .catch(error => console.log(error))
+        },
+      };
+    }
+
+    createApp({ App }).mount();
+  </script>
+
+  <template id="my-template">
+    <br>
+    <div class="container">
+      <div class="bar">
+        <h2>GPU Comparison Tool</h2>
+        <div class="vga-choice">
+          <select name="selected" id="selected" @change="select(selected)" v-model="selected">
+            <option disabled value="">Please select one</option>
+            <option v-for="vga in data" :value="vga">{{vga.name}}</option>
+          </select>
+          <span class="btn tooltip" @click="add" style="margin-left: 1rem;">
+            <span class="tooltiptext">Add GPU</span>
+            <svg class="svg-icon" viewBox="0 0 20 20">
+              <path
+                d="M14.613,10c0,0.23-0.188,0.419-0.419,0.419H10.42v3.774c0,0.23-0.189,0.42-0.42,0.42s-0.419-0.189-0.419-0.42v-3.774H5.806c-0.23,0-0.419-0.189-0.419-0.419s0.189-0.419,0.419-0.419h3.775V5.806c0-0.23,0.189-0.419,0.419-0.419s0.42,0.189,0.42,0.419v3.775h3.774C14.425,9.581,14.613,9.77,14.613,10 M17.969,10c0,4.401-3.567,7.969-7.969,7.969c-4.402,0-7.969-3.567-7.969-7.969c0-4.402,3.567-7.969,7.969-7.969C14.401,2.031,17.969,5.598,17.969,10 M17.13,10c0-3.932-3.198-7.13-7.13-7.13S2.87,6.068,2.87,10c0,3.933,3.198,7.13,7.13,7.13S17.13,13.933,17.13,10">
+              </path>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <canvas id="bar-chart" width="786" height="300"></canvas>
+      <br>
+      <div v-for="item in items" class="list-item" :class="{'reference': item.scoreForChart===1}">
+        <div>
+          <h4>{{item.name}} - {{item.gpu}}</h4>
+          <p>{{item.memory}} - <span :style="{'color': item.power> 140?'red':'green'}">{{item.power}}W</span> -
+            {{item.base_boost}}</p>
+        </div>
+        <div class="btns">
+          <span class="btn tooltip" @click="remove(item)">
+            <span class="tooltiptext">Remove</span>
+            <svg class="svg-icon" viewBox="0 0 20 20">
+              <path
+                d="M17.114,3.923h-4.589V2.427c0-0.252-0.207-0.459-0.46-0.459H7.935c-0.252,0-0.459,0.207-0.459,0.459v1.496h-4.59c-0.252,0-0.459,0.205-0.459,0.459c0,0.252,0.207,0.459,0.459,0.459h1.51v12.732c0,0.252,0.207,0.459,0.459,0.459h10.29c0.254,0,0.459-0.207,0.459-0.459V4.841h1.511c0.252,0,0.459-0.207,0.459-0.459C17.573,4.127,17.366,3.923,17.114,3.923M8.394,2.886h3.214v0.918H8.394V2.886z M14.686,17.114H5.314V4.841h9.372V17.114z M12.525,7.306v7.344c0,0.252-0.207,0.459-0.46,0.459s-0.458-0.207-0.458-0.459V7.306c0-0.254,0.205-0.459,0.458-0.459S12.525,7.051,12.525,7.306M8.394,7.306v7.344c0,0.252-0.207,0.459-0.459,0.459s-0.459-0.207-0.459-0.459V7.306c0-0.254,0.207-0.459,0.459-0.459S8.394,7.051,8.394,7.306">
+              </path>
+            </svg>
+          </span>
+          <span class="btn tooltip" @click="set100(item)" style="margin-left: 1rem;">
+            <span class="tooltiptext">Set as reference</span>
+            <svg class="svg-icon" viewBox="0 0 20 20">
+              <path
+                d="M17.659,9.597h-1.224c-0.199-3.235-2.797-5.833-6.032-6.033V2.341c0-0.222-0.182-0.403-0.403-0.403S9.597,2.119,9.597,2.341v1.223c-3.235,0.2-5.833,2.798-6.033,6.033H2.341c-0.222,0-0.403,0.182-0.403,0.403s0.182,0.403,0.403,0.403h1.223c0.2,3.235,2.798,5.833,6.033,6.032v1.224c0,0.222,0.182,0.403,0.403,0.403s0.403-0.182,0.403-0.403v-1.224c3.235-0.199,5.833-2.797,6.032-6.032h1.224c0.222,0,0.403-0.182,0.403-0.403S17.881,9.597,17.659,9.597 M14.435,10.403h1.193c-0.198,2.791-2.434,5.026-5.225,5.225v-1.193c0-0.222-0.182-0.403-0.403-0.403s-0.403,0.182-0.403,0.403v1.193c-2.792-0.198-5.027-2.434-5.224-5.225h1.193c0.222,0,0.403-0.182,0.403-0.403S5.787,9.597,5.565,9.597H4.373C4.57,6.805,6.805,4.57,9.597,4.373v1.193c0,0.222,0.182,0.403,0.403,0.403s0.403-0.182,0.403-0.403V4.373c2.791,0.197,5.026,2.433,5.225,5.224h-1.193c-0.222,0-0.403,0.182-0.403,0.403S14.213,10.403,14.435,10.403">
+              </path>
+            </svg>
+          </span>
+        </div>
+        </li>
+      </div>
+  </template>
+
+  <div v-scope="App()" @vue:mounted="mounted"></div>
+  <footer class="footer"> GPU data courtesy of <a
+      href="https://www.tomshardware.com/reviews/gpu-hierarchy,4388.html">Tomshardware </a></footer>
+</body>
+
+</html>
