@@ -14,7 +14,7 @@ SVG Icons courtesy of [SVG Icons](https://svgicons.sparkk.fr).
 
 ## Features
 
-- [x] Web scraping with [cheerio](https://cheerio.js.org/)
+- [x] Web scraping with [cheerio](https://cheerio.js.org/) to fetch GPU data
 - [x] SPA in a single .html with no build system thanks to [petite-vue](https://github.com/vuejs/petite-vue)
 - [x] bar chart with [chartjs](https://www.chartjs.org)
 

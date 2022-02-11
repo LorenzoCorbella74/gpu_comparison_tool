@@ -29,14 +29,14 @@ select {
   margin: 0;
   width: 100%;
   font-family: inherit;
-  font-size: 80%;
+  font-size: 90%;
   cursor: inherit;
   line-height: inherit;
 }
 
 .container {
   width: 786px;
-  margin: 0 auto;
+  margin: 1rem auto;
   display: flex;
   flex-direction: column;
 }
@@ -45,6 +45,12 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.list-container {
+  height: 360px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .list-item {
