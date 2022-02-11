@@ -32,6 +32,8 @@
         chart.data.datasets[0].data.push(element.scoreForChart)
       });
       chart.update();
+      // save in localstorage
+      localStorage.setItem('gpus', JSON.stringify(items));
     }
 
     function roundToSecond(num) {
@@ -83,6 +85,7 @@
               }]
             },
             options: {
+              responsive: true, // is working?
               legend: { display: true },
               plugins: {
                 datalabels: {
@@ -93,7 +96,7 @@
                 }
               },
               title: {
-                display: true,
+                display: false,
                 text: 'Selected GPU comparison'
               },
               scales: {
@@ -127,9 +130,21 @@
             .then((response) => response.json())
             .then((data) => {
               console.log('List of GPU: ', data);
-              this.data = data.map(e => ({ ...e, scoreForChart: e.score, power: Number(e.power.slice(0, -1)) })); // debug
+              this.data = data.map(e => ({
+                ...e,
+                scoreForChart: e.score,
+                power: Number(e.power.slice(0, -1)),
+                family: e.name.split(' ')[0]
+              })); // debug
               this.selected = null;
               resetSelect();
+
+              // check if items are saved in localstorage
+              let saved = localStorage.getItem('gpus')
+              if (saved) {
+                this.items = JSON.parse(saved);
+                this.set100(this.items[0]);
+              }
             })
             .catch(error => console.log(error))
         },
@@ -155,7 +170,8 @@
       </div>
       <canvas id="bar-chart" width="786" height="300"></canvas>
       <br>
-      <div v-for="item in items" class="list-item" :class="{'reference': item.scoreForChart===1}">
+      <div v-for="item in items" class="list-item"
+        :class="{'reference': item.scoreForChart===1, 'is-nvidia': item.family==='Nvidia', 'is-amd': item.family==='AMD', 'is-intel': item.family==='Intel'}">
         <div>
           <h4>{{item.name}} - {{item.gpu}}</h4>
           <p>{{item.memory}} - <span :style="{'color': item.power> 140?'red':'green'}">{{item.power}}W</span> -
